@@ -1,0 +1,28 @@
+# Java / Maven
+backend/target/
+backend/logs/
+
+# Uploaded payment data is local and may contain personal information.
+backend/data/payment-slips/*
+!backend/data/payment-slips/.gitkeep
+
+# Frontend dependencies and generated output
+frontend/node_modules/
+frontend/dist/
+frontend/playwright-report/
+frontend/test-results/
+
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+!**/.env.example
+
+# Local keys and logs
+*.pem
+*.key
+*.log
+
+# OS metadata
+Thumbs.db
+.DS_Store

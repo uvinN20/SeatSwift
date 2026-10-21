@@ -1,0 +1,147 @@
+{
+  "driver": {
+    "file": "driver.jpg",
+    "source": "User supplied Gemini_Generated_Image_g0q6l1g0q6l1g0q6.jpeg",
+    "type": "AI-generated travel illustration"
+  },
+  "network": {
+    "file": "network.jpg",
+    "source": "User supplied Gemini_Generated_Image_ev9vwgev9vwgev9v.jpeg",
+    "type": "AI-generated travel illustration"
+  },
+  "service": {
+    "file": "service.jpg",
+    "source": "User supplied Gemini_Generated_Image_wyooicwyooicwyoo.jpeg",
+    "type": "AI-generated travel illustration"
+  },
+  "hero": {
+    "file": "hero.jpg",
+    "source": "User supplied Gemini_Generated_Image_opmlryopmlryopml.jpeg",
+    "type": "AI-generated travel illustration"
+  },
+  "auth": {
+    "file": "auth.jpg",
+    "source": "User supplied Gemini_Generated_Image_9rjfx79rjfx79rjf.jpeg",
+    "type": "AI-generated travel illustration"
+  },
+  "destination-colombo": {
+    "file": "destination-colombo.png",
+    "source": "https://commons.wikimedia.org/wiki/File:Colombo_city_skyline_at_night.png",
+    "type": "Destination photograph",
+    "city": "Colombo",
+    "title": "Colombo city skyline at night.png",
+    "author": "Gihanud2001",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Colombo_city_skyline_at_night.png/1280px-Colombo_city_skyline_at_night.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "changes": "Resized and re-encoded for responsive display; card viewport may crop the photograph. Photo variants retain the source license."
+  },
+  "destination-anuradhapura": {
+    "file": "destination-anuradhapura.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:SL_Anuradhapura_asv2020-01_img11_Ruwanwelisaya_Stupa.jpg",
+    "type": "Destination photograph",
+    "city": "Anuradhapura",
+    "title": "SL Anuradhapura asv2020-01 img11 Ruwanwelisaya Stupa.jpg",
+    "author": "A.Savin",
+    "license": "FAL",
+    "licenseUrl": "https://artlibre.org/licence/lal/en",
+    "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/SL_Anuradhapura_asv2020-01_img11_Ruwanwelisaya_Stupa.jpg/1280px-SL_Anuradhapura_asv2020-01_img11_Ruwanwelisaya_Stupa.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "changes": "Resized and re-encoded for responsive display; card viewport may crop the photograph. Photo variants retain the source license."
+  },
+  "destination-badulla": {
+    "file": "destination-badulla.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Dunhinda.jpg",
+    "type": "Destination photograph",
+    "city": "Badulla",
+    "title": "Dunhinda.jpg",
+    "author": "Srlnkn at English Wikipedia",
+    "license": "Public domain",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:Dunhinda.jpg",
+    "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Dunhinda.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "changes": "Resized and re-encoded for responsive display; card viewport may crop the photograph. Photo variants retain the source license."
+  },
+  "destination-ella": {
+    "file": "destination-ella.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:The_Nine_Arches_Bridge.jpg",
+    "type": "Destination photograph",
+    "city": "Ella",
+    "title": "The Nine Arches Bridge.jpg",
+    "author": "MichaelJames2468",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/The_Nine_Arches_Bridge.jpg/1280px-The_Nine_Arches_Bridge.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "changes": "Resized and re-encoded for responsive display; card viewport may crop the photograph. Photo variants retain the source license."
+  },
+  "destination-galle": {
+    "file": "destination-galle.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:SL_Galle_Fort_asv2020-01_img24.jpg",
+    "type": "Destination photograph",
+    "city": "Galle",
+    "title": "SL Galle Fort asv2020-01 img24.jpg",
+    "author": "A.Savin",
+    "license": "FAL",
+    "licenseUrl": "https://artlibre.org/licence/lal/en",
+    "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/SL_Galle_Fort_asv2020-01_img24.jpg/1280px-SL_Galle_Fort_asv2020-01_img24.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "changes": "Resized and re-encoded for responsive display; card viewport may crop the photograph. Photo variants retain the source license."
+  },
+  "destination-jaffna": {
+    "file": "destination-jaffna.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Nallur_Kandasamy_front_entrance.jpg",
+    "type": "Destination photograph",
+    "city": "Jaffna",
+    "title": "Nallur Kandasamy front entrance.jpg",
+    "author": "Gane Kumaraswamy",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Nallur_Kandasamy_front_entrance.jpg/1280px-Nallur_Kandasamy_front_entrance.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "changes": "Resized and re-encoded for responsive display; card viewport may crop the photograph. Photo variants retain the source license."
+  },
+  "destination-kandy": {
+    "file": "destination-kandy.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:SL_Kandy_asv2020-01_img33_Sacred_Tooth_Temple.jpg",
+    "type": "Destination photograph",
+    "city": "Kandy",
+    "title": "SL Kandy asv2020-01 img33 Sacred Tooth Temple.jpg",
+    "author": "A.Savin",
+    "license": "FAL",
+    "licenseUrl": "https://artlibre.org/licence/lal/en",
+    "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/SL_Kandy_asv2020-01_img33_Sacred_Tooth_Temple.jpg/1280px-SL_Kandy_asv2020-01_img33_Sacred_Tooth_Temple.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "changes": "Resized and re-encoded for responsive display; card viewport may crop the photograph. Photo variants retain the source license."
+  },
+  "destination-matara": {
+    "file": "destination-matara.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Sri_Lanka_Photo197.jpg",
+    "type": "Destination photograph",
+    "city": "Matara",
+    "title": "Sri Lanka Photo197.jpg",
+    "author": "psychoslave",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Sri_Lanka_Photo197.jpg/1280px-Sri_Lanka_Photo197.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "changes": "Resized and re-encoded for responsive display; card viewport may crop the photograph. Photo variants retain the source license."
+  },
+  "destination-nuwara-eliya": {
+    "file": "destination-nuwara-eliya.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:NuwaraEliya_from_top.jpg",
+    "type": "Destination photograph",
+    "city": "Nuwara Eliya",
+    "title": "NuwaraEliya from top.jpg",
+    "author": "Abdul malik77",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/NuwaraEliya_from_top.jpg/1280px-NuwaraEliya_from_top.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "changes": "Resized and re-encoded for responsive display; card viewport may crop the photograph. Photo variants retain the source license."
+  },
+  "destination-trincomalee": {
+    "file": "destination-trincomalee.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Spiritual_16.jpg",
+    "type": "Destination photograph",
+    "city": "Trincomalee",
+    "title": "Spiritual 16.jpg",
+    "author": "Shamli071",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Spiritual_16.jpg/1280px-Spiritual_16.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "changes": "Resized and re-encoded for responsive display; card viewport may crop the photograph. Photo variants retain the source license."
+  }
+}

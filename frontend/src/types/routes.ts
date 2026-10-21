@@ -1,0 +1,22 @@
+export const ROUTES = {
+  HOME: "/",
+  SEARCH: "/search",
+  BOOK: "/book",
+  ROUTES_INFO: "/routes",
+  SCHEDULES: "/schedules",
+  ABOUT: "/about",
+  CONTACT: "/contact",
+  LOGIN: "/login",
+  // Kept as aliases so older links and saved bookmarks still open the shared sign-in.
+  ADMIN_LOGIN: "/admin/login",
+  PASSENGER_LOGIN: "/passengers/login",
+  PASSENGER_REGISTER: "/passengers/register",
+  ADMIN_DASHBOARD: "/admin/dashboard",
+  ADMIN_PAYMENTS: "/admin/payments",
+  ADMIN_SCHEDULES: "/admin/schedules",
+  ADMIN_RESERVATIONS: "/admin/reservations",
+  ADMIN_OWNERS: "/admin/owners",
+  OWNER_DASHBOARD: "/owner/dashboard",
+  OWNER_REQUEST: "/owner/request-account",
+  PASSENGER_BOOKINGS: "/passenger/bookings",
+} as const;

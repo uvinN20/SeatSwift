@@ -1,0 +1,65 @@
+/* ===== Design tokens ===== */
+:root {
+  --navy-900: #101d35;
+  --navy-800: #172744;
+  --teal: #20b8a5;
+  --teal-700: #0e7c70;   /* teal for TEXT on light backgrounds (AA contrast) */
+  --teal-100: #e3f6f3;
+  --bg: #f5f7fa;
+  --white: #ffffff;
+  --text: #1d2939;
+  --text-2: #667085;
+  --border: #dce2ea;
+  --success: #16865b;
+  --warning: #e6a23c;
+  --error: #d64545;
+
+  --font: "Plus Jakarta Sans", Inter, system-ui, "Segoe UI", Roboto, sans-serif;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow-sm: 0 1px 2px rgba(16, 29, 53, 0.06);
+  --shadow-md: 0 8px 24px rgba(16, 29, 53, 0.1);
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --t-fast: 140ms;
+  --t-base: 260ms;
+  --header-h: 68px;
+
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--bg);
+  color-scheme: light;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; background: var(--bg); color: var(--text); line-height: 1.55; }
+#root { min-height: 100svh; }
+img { max-width: 100%; }
+h1, h2, h3, h4 { color: var(--navy-900); margin: 0; line-height: 1.15; letter-spacing: -0.02em; }
+p { margin: 0; }
+a { color: var(--teal-700); }
+
+:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; border-radius: 6px; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
+/* ===== Motion ===== */
+@keyframes sb-fade-up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes sb-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes sb-pop { 0% { transform: scale(0.92); } 60% { transform: scale(1.06); } 100% { transform: scale(1); } }
+
+.page-enter { animation: sb-fade var(--t-base) var(--ease); }
+.anim-up { opacity: 0; animation: sb-fade-up 600ms var(--ease) forwards; }
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity 600ms var(--ease), transform 600ms var(--ease); }
+.reveal.is-visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; transition-delay: 0ms !important; }
+  .anim-up, .reveal { opacity: 1; transform: none; }
+}

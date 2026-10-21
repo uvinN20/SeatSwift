@@ -1,0 +1,152 @@
+{
+  "driver": {
+    "width": 1376,
+    "height": 768,
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAANABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAYHBf/EACoQAAIBAwEGBQUAAAAAAAAAAAECAwQFEQAGEhMhMUIHQVFhkRQiMnGB/8QAFgEBAQEAAAAAAAAAAAAAAAAAAQAC/8QAGREAAgMBAAAAAAAAAAAAAAAAAQIAAxEh/9oADAMBAAIRAxEAPwBApK+jWljjjo7aGDFZX4vWL8j17uZUfrTJYbTU1ttS73KkpDSS00SLkhETd7sAZ3jge5+dSJKri3pfqIY5UkZIZVYcn7d72Ota27YXWG0vZuKJKJVU7kn3Dkd4Y9PnQlKvqnsC7KQQeS32230kFxt4hENVLE0sZKBZELFQMggDOM+fmOXTRqZ+Dlzlu22FCajKRQs7iKJiqsSD19cch/Bo1JW6jEOCZtNLtrrpn//Z",
+    "small": "/images/driver/640.jpg",
+    "original": "/images/driver/original.jpg",
+    "avif": "/images/driver/640.avif 640w, /images/driver/960.avif 960w, /images/driver/1280.avif 1280w, /images/driver/1376.avif 1376w",
+    "webp": "/images/driver/640.webp 640w, /images/driver/960.webp 960w, /images/driver/1280.webp 1280w, /images/driver/1376.webp 1376w",
+    "jpeg": "/images/driver/640.jpg 640w, /images/driver/960.jpg 960w, /images/driver/1280.jpg 1280w, /images/driver/1376.jpg 1376w"
+  },
+  "network": {
+    "width": 1376,
+    "height": 768,
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAANABgDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAUDBgcI/8QAJhAAAQMDAwMFAQAAAAAAAAAAAQIDEQAEBQYSITEyQQcUJGGBov/EABYBAQEBAAAAAAAAAAAAAAAAAAMCBP/EAB8RAAEEAQUBAAAAAAAAAAAAAAEAAgMRIQQSE0Nxgf/aAAwDAQACEQMRAD8AixupbxK/ke3U0kTsDe3+iTTGw1o+t9pdvat3DW4pKGW98/o6x9Uqd0hjnmkIfU+XAACtKgAeI7SCPNVjLaYOBuUv2eQfBXMgAphJHaINA2SYdhPqThhAssC2HF+pSFNJKbZlmZguJIHB68eKK52s8ndWd4y028pxl079jsLCVQDIkcdfFFTK+nZF/StMWm3Ntpx4F//Z",
+    "small": "/images/network/640.jpg",
+    "original": "/images/network/original.jpg",
+    "avif": "/images/network/640.avif 640w, /images/network/960.avif 960w, /images/network/1280.avif 1280w, /images/network/1376.avif 1376w",
+    "webp": "/images/network/640.webp 640w, /images/network/960.webp 960w, /images/network/1280.webp 1280w, /images/network/1376.webp 1376w",
+    "jpeg": "/images/network/640.jpg 640w, /images/network/960.jpg 960w, /images/network/1280.jpg 1280w, /images/network/1376.jpg 1376w"
+  },
+  "service": {
+    "width": 1376,
+    "height": 768,
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAANABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMHAgb/xAAnEAABBAEDAwMFAAAAAAAAAAACAQMEEQUABiESIjEUQVETI2Ghwf/EABYBAQEBAAAAAAAAAAAAAAAAAAMBAv/EAB4RAAICAAcAAAAAAAAAAAAAAAECABESITFBobHh/9oADAMBAAIRAxEAPwBOalQsttXG5Oc1KbKcbgETR2Q/S5BatB83zV86fgTSNtmZK6pDpCbRsE6CITwqJKiJS/K+fxrbGFiP7ZxGMkCrowSdITJV71c82l/3XKysqbWwZYwmxY9Cf2iJesqElVOV9+7z+tHis1tNKpAuU/C723JLjtSJRNRnxc6SjEgd6JXHyl6NQ/AbiF3czDR4uEkl50U9QPUioVpRUqql8X7c6NVS4GXJPsNgL06n/9k=",
+    "small": "/images/service/640.jpg",
+    "original": "/images/service/original.jpg",
+    "avif": "/images/service/640.avif 640w, /images/service/960.avif 960w, /images/service/1280.avif 1280w, /images/service/1376.avif 1376w",
+    "webp": "/images/service/640.webp 640w, /images/service/960.webp 960w, /images/service/1280.webp 1280w, /images/service/1376.webp 1376w",
+    "jpeg": "/images/service/640.jpg 640w, /images/service/960.jpg 960w, /images/service/1280.jpg 1280w, /images/service/1376.jpg 1376w"
+  },
+  "hero": {
+    "width": 1408,
+    "height": 768,
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAANABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAUGB//EACUQAAICAQMEAQUAAAAAAAAAAAEDAhEEAAUhBhIxQRQyUVJxof/EABYBAQEBAAAAAAAAAAAAAAAAAAMCBP/EAB4RAAEEAQUAAAAAAAAAAAAAAAEAAgMRFAQSMXHw/9oADAMBAAIRAxEAPwBdsKGL2NqELnt2O2JW0woGZsG+6VGuP7qjyuus7BfHbILe0rgKZcIgDtBFS98aaZrsXCwV43xWMbFXYHScb7vyIqjz6+3Gop/SWVmZbNwG9MiwAXCeNCcCPH08C696zwylrQRSuTT2TytA2vq/c8hFlUJxgaJMoy7hXiwdGpzYtuCUxxQ9kGgkmaQFQN+LgBXH70abPZGNr2k+7RYMzzbCKX//2Q==",
+    "small": "/images/hero/640.jpg",
+    "original": "/images/hero/original.jpg",
+    "avif": "/images/hero/640.avif 640w, /images/hero/960.avif 960w, /images/hero/1280.avif 1280w, /images/hero/1408.avif 1408w",
+    "webp": "/images/hero/640.webp 640w, /images/hero/960.webp 960w, /images/hero/1280.webp 1280w, /images/hero/1408.webp 1408w",
+    "jpeg": "/images/hero/640.jpg 640w, /images/hero/960.jpg 960w, /images/hero/1280.jpg 1280w, /images/hero/1408.jpg 1408w"
+  },
+  "auth": {
+    "width": 1376,
+    "height": 768,
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAANABgDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABgADB//EACUQAAEEAgIABgMAAAAAAAAAAAECAwQFABESIQYiMTJBURMzYf/EABQBAQAAAAAAAAAAAAAAAAAAAAT/xAAeEQABBAEFAAAAAAAAAAAAAAABAAIDIQQRElGh8P/aAAwDAQACEQMRAD8AT1FzYhbZaVKUpCFtgqJKQlXr67GY+OrR2bRtM2CY70gOtCO2WgXVKBA4gDStH5AIzlfihV1Ho4c1+9kPJkAqLQSUhPW+vMcNO3siuMJ1pDai615irfIqIB5b3/evrWBx8GfW31xfukfcIyHOSxNZDcrpFnfwZNe5HIjyWxx/ZoEe4+0/HZI3lgKwsZthARXyJBUwpX5jsbJV2O/vpIyxDYikktX/2Q==",
+    "small": "/images/auth/640.jpg",
+    "original": "/images/auth/original.jpg",
+    "avif": "/images/auth/640.avif 640w, /images/auth/960.avif 960w, /images/auth/1280.avif 1280w, /images/auth/1376.avif 1376w",
+    "webp": "/images/auth/640.webp 640w, /images/auth/960.webp 960w, /images/auth/1280.webp 1280w, /images/auth/1376.webp 1376w",
+    "jpeg": "/images/auth/640.jpg 640w, /images/auth/960.jpg 960w, /images/auth/1280.jpg 1280w, /images/auth/1376.jpg 1376w"
+  },
+  "destination-colombo": {
+    "width": 1280,
+    "height": 960,
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAASABgDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAMFBgf/xAAmEAACAQQBAwMFAAAAAAAAAAABAgMABAUREwYhMUFRUiJTgZGx/8QAGAEAAwEBAAAAAAAAAAAAAAAABAUGAQL/xAAhEQABAwIHAQAAAAAAAAAAAAABAAIRAwUSEyExMmGBwf/aAAwDAQACEQMRAD8A53hse9vlmhuY1UiFm8Bge3kVS5JdX06q2gHOgPSt9kMfO3U0jJHcoqoys77ABA1rv+KhNgk8fNksfGkQQILmWApyDyCWOlBPp71wy8EVc5zZkAaLX2iaWSx0QZ1XPmiAC7Y6I34pWpuXRcBl7J7iJpFeJIo+RNgBt6A3/PelNaVxpvBxQPegUorW6qwjBLvOyPikxBM3Uc/MeTtv6u/fRrMdS3EyZGSNZpFT4hiB+qUqdZyCpXcSqUzS/dfx8jSlKNGyCduv/9k=",
+    "small": "/images/destination-colombo/480.jpg",
+    "original": "/images/destination-colombo/original.png",
+    "avif": "/images/destination-colombo/480.avif 480w, /images/destination-colombo/800.avif 800w, /images/destination-colombo/1280.avif 1280w",
+    "webp": "/images/destination-colombo/480.webp 480w, /images/destination-colombo/800.webp 800w, /images/destination-colombo/1280.webp 1280w",
+    "jpeg": "/images/destination-colombo/480.jpg 480w, /images/destination-colombo/800.jpg 800w, /images/destination-colombo/1280.jpg 1280w"
+  },
+  "destination-anuradhapura": {
+    "width": 1280,
+    "height": 640,
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAMABgDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAYF/8QAKRAAAQIEBQEJAAAAAAAAAAAAAQIDAAQFEhEUISJBYQYVMTIzUXGBkf/EABUBAQEAAAAAAAAAAAAAAAAAAAAC/8QAGhEBAAIDAQAAAAAAAAAAAAAAAQARBAVCFf/aAAwDAQACEQMRAD8A2mKaEMq2biPEEYfkaqOyTrdFM8lohQN1qTuKMPNr1iGelTTkN5SZmUaEeoToeIGtVRDt/eM0pYTbiXOPb4g7FSwgwKaWUD7FrVpFvXmESrrmYZUiYQl1JAUQvE6j7hFeiPMh16dT/9k=",
+    "small": "/images/destination-anuradhapura/480.jpg",
+    "original": "/images/destination-anuradhapura/original.jpg",
+    "avif": "/images/destination-anuradhapura/480.avif 480w, /images/destination-anuradhapura/800.avif 800w, /images/destination-anuradhapura/1280.avif 1280w",
+    "webp": "/images/destination-anuradhapura/480.webp 480w, /images/destination-anuradhapura/800.webp 800w, /images/destination-anuradhapura/1280.webp 1280w",
+    "jpeg": "/images/destination-anuradhapura/480.jpg 480w, /images/destination-anuradhapura/800.jpg 800w, /images/destination-anuradhapura/1280.jpg 1280w"
+  },
+  "destination-badulla": {
+    "width": 800,
+    "height": 600,
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAASABgDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAQGBwIF/8QAKhAAAQIEAwYHAAAAAAAAAAAAAQIDAAQFERIhMQYUMkFRkQcTImFxgcH/xAAWAQEBAQAAAAAAAAAAAAAAAAACAwD/xAAZEQEBAAMBAAAAAAAAAAAAAAABAAIDETH/2gAMAwEAAhEDEQA/AKRtGlDEvLPbuqXBWUKSrkRE7ZRpydbem1lTNNkU4ph5PvwIF9VE2t30iHWaw5WFol0yzqkkcDd/Wq/Eep/Ism08q5Q/Dag01kDHMuKnJkjPCrOyT8ZDPpE9AuPMiiPLNK7MCZmHHnk+Yu97qOn1CPOqrSnXMKLlXUcoQ/LWg3KXU4SRmNI5r6juOpzIv3hCMSaj1EkJyJF0m8IQglO//9k=",
+    "small": "/images/destination-badulla/480.jpg",
+    "original": "/images/destination-badulla/original.jpg",
+    "avif": "/images/destination-badulla/480.avif 480w, /images/destination-badulla/800.avif 800w",
+    "webp": "/images/destination-badulla/480.webp 480w, /images/destination-badulla/800.webp 800w",
+    "jpeg": "/images/destination-badulla/480.jpg 480w, /images/destination-badulla/800.jpg 800w"
+  },
+  "destination-ella": {
+    "width": 1280,
+    "height": 1399,
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAaABgDASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAAUGBAMH/8QAJhAAAgICAQQCAQUAAAAAAAAAAQIDBAARIQUSEzEiQWEGMlGRof/EABYBAQEBAAAAAAAAAAAAAAAAAAAEAf/EAB8RAAICAgEFAAAAAAAAAAAAAAABAhEDIQQSMTJRYf/aAAwDAQACEQMRAD8A8rt1DKHSSVS8Z1peFb87xdYqPEoDSQKIwxO3+jlhJX6XZuhbCOskgDt2EbOyRob9jj1mux0TvgewkEE9eNCzMHXS/L72d617yCHKcnTdGKG6ImFWkdSGZAVBDtxvWhhjy11GSrpJ5ERCfiAq6/sDDDzTfiK+mm10RrZjvRsrzRp2NH5CQfeuRrnnFF28a3fUiW1QhikBlm7S5Z/ocnLjpQCyTBQAPMV0P436zn1WKN/IHjRhoHRUHnfvIcU+qVS3Ql7IGxY6ZIlSWVjOWdn8kiAAEjX7fz/mGNv1PTrR1+9K8KuLMK9wQA6LcjeGU1pbZnY//9k=",
+    "small": "/images/destination-ella/480.jpg",
+    "original": "/images/destination-ella/original.jpg",
+    "avif": "/images/destination-ella/480.avif 480w, /images/destination-ella/800.avif 800w, /images/destination-ella/1280.avif 1280w",
+    "webp": "/images/destination-ella/480.webp 480w, /images/destination-ella/800.webp 800w, /images/destination-ella/1280.webp 1280w",
+    "jpeg": "/images/destination-ella/480.jpg 480w, /images/destination-ella/800.jpg 800w, /images/destination-ella/1280.jpg 1280w"
+  },
+  "destination-galle": {
+    "width": 1280,
+    "height": 1024,
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAATABgDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAQFBgMH/8QAKhAAAQMDAwIEBwAAAAAAAAAAAQIDBAAFERIhMRNRBhRxkQcVIiNBYfD/xAAYAQACAwAAAAAAAAAAAAAAAAACAwAFBv/EAB8RAQADAAIBBQAAAAAAAAAAAAEAAhEDEiEEIjFBUf/aAAwDAQACEQMRAD8A08YRmCltbqA4oEhJVuQOTVgqGEwTJUpKWSvpp1Ac4z715z4ljXq4NoltRFGEysqae1JT+cEZ7frmtja70i3fDyN8y1Ke8yftjClacf29Mt6n3YmB9xVeJTxKO33lFzusmMqOhDTeS2TupQHJwNgPWlS4ohqcXLbhlp5wkgkjUQd8jHfNKbxX7V3dgXr1cyYpm5TeihHmXdDYwlOrYb549altyH3dDi33tSeMOED2G1KVnU11l3X8nCS65N1tSnHHG0/WAVEYPfalKUQp8SNR8pP/2Q==",
+    "small": "/images/destination-galle/480.jpg",
+    "original": "/images/destination-galle/original.jpg",
+    "avif": "/images/destination-galle/480.avif 480w, /images/destination-galle/800.avif 800w, /images/destination-galle/1280.avif 1280w",
+    "webp": "/images/destination-galle/480.webp 480w, /images/destination-galle/800.webp 800w, /images/destination-galle/1280.webp 1280w",
+    "jpeg": "/images/destination-galle/480.jpg 480w, /images/destination-galle/800.jpg 800w, /images/destination-galle/1280.jpg 1280w"
+  },
+  "destination-jaffna": {
+    "width": 1280,
+    "height": 914,
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAARABgDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAUHCAIE/8QAJBAAAQMDAwUBAQAAAAAAAAAAAQIDBAAFEQYhMQcSQWGBE3H/xAAXAQADAQAAAAAAAAAAAAAAAAADBAUC/8QAHhEAAgICAgMAAAAAAAAAAAAAAAECBAMSERMhMVH/2gAMAwEAAhEDEQA/AL01dqSPpezuPuuZkLZdVGSobFaE5APrJA+1H2LqJapGm2LneZ0OG8E4kIUrtCVEqAAB3OQnON6pXVtr1JeLmwr8ZDjaUpSXXVBzfbJx3bD54qBPT+73BCkXdbpZS2lbaG8Jy4M5zk7A7VPlakp8prUpRr4urV87fTWES4xZENuRGkMORX923UKBSv8Ah80rK8vQ92jGIzbXVmFGWVMpXJ7FteSRyOccezSjRu437FZVJp+C4Fc/K6HBpSpY6eV/k0pShs2j/9k=",
+    "small": "/images/destination-jaffna/480.jpg",
+    "original": "/images/destination-jaffna/original.jpg",
+    "avif": "/images/destination-jaffna/480.avif 480w, /images/destination-jaffna/800.avif 800w, /images/destination-jaffna/1280.avif 1280w",
+    "webp": "/images/destination-jaffna/480.webp 480w, /images/destination-jaffna/800.webp 800w, /images/destination-jaffna/1280.webp 1280w",
+    "jpeg": "/images/destination-jaffna/480.jpg 480w, /images/destination-jaffna/800.jpg 800w, /images/destination-jaffna/1280.jpg 1280w"
+  },
+  "destination-kandy": {
+    "width": 1280,
+    "height": 640,
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAMABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQGA//EACMQAAIBAwQCAwEAAAAAAAAAAAECAwQFEQAGEiExQQcUUSL/xAAWAQEBAQAAAAAAAAAAAAAAAAADAQX/xAAdEQACAgEFAAAAAAAAAAAAAAAAAQIREgMTFCFB/9oADAMBAAIRAxEAPwCB+hWilpGeZaemqmLwGSQ8nUHAYIBnz0D71SW744udwjWcUckkYVVJeUwMT+gMM+vzWFvqJaKONKV2RIjyRT/QBzn3nTdx3dfqemleO6VQY4JPPvrWdyYroqxTuiX3Mavbl0moBNUxcV4qrsxBPsqSBlc57GjSFz3Jdb1C6XSslqVYYIkYnonxnyPOjS78/JMBx027xP/Z",
+    "small": "/images/destination-kandy/480.jpg",
+    "original": "/images/destination-kandy/original.jpg",
+    "avif": "/images/destination-kandy/480.avif 480w, /images/destination-kandy/800.avif 800w, /images/destination-kandy/1280.avif 1280w",
+    "webp": "/images/destination-kandy/480.webp 480w, /images/destination-kandy/800.webp 800w, /images/destination-kandy/1280.webp 1280w",
+    "jpeg": "/images/destination-kandy/480.jpg 480w, /images/destination-kandy/800.jpg 800w, /images/destination-kandy/1280.jpg 1280w"
+  },
+  "destination-matara": {
+    "width": 1280,
+    "height": 960,
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAASABgDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAMEBQb/xAAkEAACAgEEAQUBAQAAAAAAAAABAgMEAAUREiExBhNBUWEVkf/EABYBAQEBAAAAAAAAAAAAAAAAAAMCBP/EABkRAQEBAQEBAAAAAAAAAAAAAAEAAgMxQf/aAAwDAQACEQMRAD8A7KW3TWEtK0XJj1sB2f8AMxnsVGLF1B3+icsQaBolGnXrRJYMcDclV7jMT5OxPkjs9ZH/AA62pWeNfTnC/jNxX9J3zQbCBy1ZtXiRkihmljVDv18A4zjfU8OnQa1Y0zSo7Fy6EAcREmJP3kdx8+fnbGS9slRybYaeUzqTK5PuKO2PjfJPXFyzDo12OGxNGgAHFHIGxPfWMYLKWZo0UcVWoIo0Qe3vsoA+sYxmb7OeX//Z",
+    "small": "/images/destination-matara/480.jpg",
+    "original": "/images/destination-matara/original.jpg",
+    "avif": "/images/destination-matara/480.avif 480w, /images/destination-matara/800.avif 800w, /images/destination-matara/1280.avif 1280w",
+    "webp": "/images/destination-matara/480.webp 480w, /images/destination-matara/800.webp 800w, /images/destination-matara/1280.webp 1280w",
+    "jpeg": "/images/destination-matara/480.jpg 480w, /images/destination-matara/800.jpg 800w, /images/destination-matara/1280.jpg 1280w"
+  },
+  "destination-nuwara-eliya": {
+    "width": 1280,
+    "height": 960,
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAASABgDASIAAhEBAxEB/8QAGgABAAIDAQAAAAAAAAAAAAAAAAQIAQMGB//EACYQAAIBBAECBgMAAAAAAAAAAAEDAgAEESESBTEGExQyUWEiI0H/xAAXAQEBAQEAAAAAAAAAAAAAAAAEAQAC/8QAGhEAAwADAQAAAAAAAAAAAAAAAAECETFBE//aAAwDAQACEQMRAD8A98X1C0lHPqk4zj3ity723ZpVwqR+pg1U7p0IMELG1urwPZLLGyYRg/BB1r5G6ndVT0/pclyfcQdcKhk+TcS5yMTrY9pwQQDumNzjID0tcLSMulQU1k3R4rBMznOAPoUqmXiLxG21b5nT2PjOWGMLJcyQe3c7HcbpUWHo6V0+EdzWSvJ8mTP4Duaw8mc2czy/Xy3vfzSlDNWjnhOUrd5lIk4A2f5jtSlKZJJP/9k=",
+    "small": "/images/destination-nuwara-eliya/480.jpg",
+    "original": "/images/destination-nuwara-eliya/original.jpg",
+    "avif": "/images/destination-nuwara-eliya/480.avif 480w, /images/destination-nuwara-eliya/800.avif 800w, /images/destination-nuwara-eliya/1280.avif 1280w",
+    "webp": "/images/destination-nuwara-eliya/480.webp 480w, /images/destination-nuwara-eliya/800.webp 800w, /images/destination-nuwara-eliya/1280.webp 1280w",
+    "jpeg": "/images/destination-nuwara-eliya/480.jpg 480w, /images/destination-nuwara-eliya/800.jpg 800w, /images/destination-nuwara-eliya/1280.jpg 1280w"
+  },
+  "destination-trincomalee": {
+    "width": 1280,
+    "height": 853,
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAQABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAYHBf/EACMQAAEEAgIBBQEAAAAAAAAAAAECAwQRAAUhMRMGEkFRYYH/xAAVAQEBAAAAAAAAAAAAAAAAAAADBf/EACIRAAIABAYDAAAAAAAAAAAAAAECAAMREgQFE0FRYSExMv/aAAwDAQACEQMRAD8AUtHOj7RB8dJdTwUKPJ4vNcRDY4F4q6JcaBHWxq3PNMeQh5bpSUKZsX4wlQ6okWO+8adIvZyHWg/Mb94IUA0yG139EqtJH85yvKzwpJImCrgeODxWJzZUxcMvzv1Eb9Y6GVr9+600lx9D1vBVklQNmj+jnrvDLtNTCE2Op+OVONm0rKbLZ4BIuj83x+4YVmEmkvqW12p6hLsSgC6de4//2Q==",
+    "small": "/images/destination-trincomalee/480.jpg",
+    "original": "/images/destination-trincomalee/original.jpg",
+    "avif": "/images/destination-trincomalee/480.avif 480w, /images/destination-trincomalee/800.avif 800w, /images/destination-trincomalee/1280.avif 1280w",
+    "webp": "/images/destination-trincomalee/480.webp 480w, /images/destination-trincomalee/800.webp 800w, /images/destination-trincomalee/1280.webp 1280w",
+    "jpeg": "/images/destination-trincomalee/480.jpg 480w, /images/destination-trincomalee/800.jpg 800w, /images/destination-trincomalee/1280.jpg 1280w"
+  }
+}
