@@ -8,18 +8,24 @@ Run setup-db.cmd again when upgrading to this edition. Owners can request an acc
 
 ## 📸 Application screenshots
 
-These screenshots show the booking workflow in the local development application.
+These screenshots show the application running locally.
 
-### Search and compare bus departures
+### Homepage — find your next journey
+
+![SeatSwift homepage route search](docs/screenshots/seatswift-home.jpg)
+
+*Search for buses by boarding city, destination and travel date.*
+
+### Bus search results
 
 ![SeatSwift available trips, seat counts, filtering and fares](docs/screenshots/seatswift-search-results.jpg)
 
-*Search routes, filter departures, compare fares and inspect available seats before booking.*
+*Compare departures, prices and available seats before booking.*
 
 ### Interactive seat selection
 
 ![SeatSwift interactive seat map and booking summary](docs/screenshots/seatswift-seat-selection.jpg)
 
-*Choose seats on a bus layout and review the fare and booking summary before proceeding.*
+*Choose seats on the bus layout and review the booking summary.*
 
-> Screenshots show a local development instance and do not imply a publicly deployed live demo.
+> Screenshots were captured locally. A publicly deployed demo has not been verified.
