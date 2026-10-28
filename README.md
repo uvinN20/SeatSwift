@@ -2,7 +2,7 @@
 
 Start with **START-HERE.md** for Windows setup commands, database initialization and login details.
 
-Java 25 backend, MySQL 8 database, React frontend, eight departures per route/day, 8–10 demo booked seats per departure, and same-day booking until one hour before departure in Asia/Colombo.
+Java 25 backend, MySQL 8 database, React frontend, eight departures per route/day, and same-day booking until one hour before departure in Asia/Colombo.
 
 ## Bus owner login and dashboard
 
