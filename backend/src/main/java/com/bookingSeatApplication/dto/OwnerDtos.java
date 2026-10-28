@@ -20,7 +20,8 @@ public final class OwnerDtos {
                            Integer ownerId, String ownerName) {}
     public record Trip(int scheduleId, int busId, String source, String destination,
                        LocalDate travelDate, LocalTime departureTime, BigDecimal price,
-                       int totalSeats, int bookedSeats, int confirmedSeats, BigDecimal confirmedValue) {}
+                       int totalSeats, int bookedSeats, int confirmedSeats, BigDecimal confirmedValue,
+                       boolean hasBookingHistory) {}
     public record Reservation(int bookingId, String bookingReference, String seatNumber,
                               String passengerName, String phoneNumber, String bookingStatus,
                               BigDecimal amount) {}

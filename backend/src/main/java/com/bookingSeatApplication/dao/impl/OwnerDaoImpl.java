@@ -79,12 +79,13 @@ public class OwnerDaoImpl implements OwnerDao {
         "(SELECT COUNT(*) FROM seats st WHERE st.bus_id=s.bus_id) total_seats," +
         "(SELECT COUNT(*) FROM bookings b WHERE b.schedule_id=s.schedule_id AND b.booking_status<>'CANCELLED') booked_seats," +
         "(SELECT COUNT(*) FROM bookings b WHERE b.schedule_id=s.schedule_id AND b.booking_status='CONFIRMED') confirmed_seats," +
-        "(SELECT COALESCE(SUM(b.amount),0) FROM bookings b WHERE b.schedule_id=s.schedule_id AND b.booking_status='CONFIRMED') confirmed_value " +
+        "(SELECT COALESCE(SUM(b.amount),0) FROM bookings b WHERE b.schedule_id=s.schedule_id AND b.booking_status='CONFIRMED') confirmed_value," +
+        "(SELECT COUNT(*) FROM bookings b WHERE b.schedule_id=s.schedule_id)>0 has_booking_history " +
         "FROM schedules s JOIN routes r ON r.route_id=s.route_id JOIN bus_owners o ON o.bus_id=s.bus_id WHERE o.owner_id=?";
     private static final RowMapper<Trip> TRIP = (r,n) -> new Trip(r.getInt("schedule_id"),r.getInt("bus_id"),
         r.getString("source"),r.getString("destination"),r.getDate("travel_date").toLocalDate(),
         r.getTime("departure_time").toLocalTime(),r.getBigDecimal("price"),r.getInt("total_seats"),
-        r.getInt("booked_seats"),r.getInt("confirmed_seats"),r.getBigDecimal("confirmed_value"));
+        r.getInt("booked_seats"),r.getInt("confirmed_seats"),r.getBigDecimal("confirmed_value"),r.getBoolean("has_booking_history"));
     public List<Trip> trips(int ownerId, LocalDate date) {
         return db.query(TRIPS + " AND s.travel_date=? ORDER BY s.departure_time,s.bus_id", TRIP, ownerId, date);
     }

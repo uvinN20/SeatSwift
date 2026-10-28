@@ -15,7 +15,7 @@ export interface FleetBus {
 }
 export interface OwnerTrip {
   scheduleId: number; busId: number; source: string; destination: string; travelDate: string;
-  departureTime: string; price: number; totalSeats: number; bookedSeats: number; confirmedSeats: number; confirmedValue: number;
+  departureTime: string; price: number; totalSeats: number; bookedSeats: number; confirmedSeats: number; confirmedValue: number; hasBookingHistory: boolean;
 }
 export interface OwnerReservation {
   bookingId: number; bookingReference: string | null; seatNumber: string; passengerName: string;

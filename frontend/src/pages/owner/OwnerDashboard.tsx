@@ -124,13 +124,15 @@ const OwnerDashboard = () => {
           { title: "Fare", render: (_,t) => formatMoney(t.price) },
           { title: "Actions", render: (_,t) => <div className="sb-row">
             <Button onClick={() => void inspect(t.scheduleId)}>View seats & bookings</Button>
-            <Tooltip title={t.bookedSeats ? "Departures with booking history are locked to protect passenger tickets." : undefined}>
-              <Button disabled={t.bookedSeats > 0} onClick={() => edit(t)}>Edit</Button>
+            <Tooltip title={t.hasBookingHistory ? "Departures with booking history are locked to protect passenger tickets." : undefined}>
+              <span><Button disabled={t.hasBookingHistory} onClick={() => edit(t)}>Edit</Button></span>
             </Tooltip>
-            <Tooltip title={t.bookedSeats ? "Departures with booking history cannot be deleted." : undefined}>
-              <span><Popconfirm title="Delete this departure?" description="Only departures with no booking history can be removed." okText="Delete departure" cancelText="Keep departure" okButtonProps={{ danger: true }} onConfirm={() => void remove(t)}>
-                <Button danger loading={deletingId === t.scheduleId} disabled={t.bookedSeats > 0 || deletingId !== undefined}>Delete</Button>
-              </Popconfirm></span>
+            <Tooltip title={t.hasBookingHistory ? "Departures with booking history cannot be deleted." : undefined}>
+              <span>{t.hasBookingHistory
+                ? <Button danger disabled>Delete</Button>
+                : <Popconfirm title="Delete this departure?" description="Only departures with no booking history can be removed." okText="Delete departure" cancelText="Keep departure" okButtonProps={{ danger: true }} onConfirm={() => void remove(t)}>
+                  <Button danger loading={deletingId === t.scheduleId} disabled={deletingId !== undefined}>Delete</Button>
+                </Popconfirm>}</span>
             </Tooltip>
           </div> },
         ]} />

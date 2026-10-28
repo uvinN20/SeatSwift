@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 
 const futureDate = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
 const fleet = [{ busId: 1, routeId: 1, source: "Colombo", destination: "Kandy", totalSeats: 40, ownerId: 1, ownerName: "Test Owner" }];
-const trip = { scheduleId: 1, busId: 1, source: "Colombo", destination: "Kandy", travelDate: futureDate, departureTime: "10:00:00", price: 1500, totalSeats: 40, bookedSeats: 9, confirmedSeats: 8, confirmedValue: 12000 };
+const trip = { scheduleId: 1, busId: 1, source: "Colombo", destination: "Kandy", travelDate: futureDate, departureTime: "10:00:00", price: 1500, totalSeats: 40, bookedSeats: 9, confirmedSeats: 8, confirmedValue: 12000, hasBookingHistory: true };
 const token = `header.${Buffer.from(JSON.stringify({ sub: "ownerone" })).toString("base64url")}.signature`;
 test.beforeEach(async ({ page }) => {
   await page.route("**/seat-booking-application/api/**", async route => {
@@ -42,7 +42,7 @@ test("shared sign-in opens owner dashboard and seat manifest", async ({ page }) 
   expect((await request).postDataJSON()).toEqual({ busId: 1, travelDate: futureDate, departureTime: "15:30:00", price: 1500 });
 });
 test("owner can edit and delete an unbooked departure", async ({ page }) => {
-  const unbooked = { ...trip, bookedSeats: 0, confirmedSeats: 0, confirmedValue: 0 };
+  const unbooked = { ...trip, bookedSeats: 0, confirmedSeats: 0, confirmedValue: 0, hasBookingHistory: false };
   await page.route("**/seat-booking-application/api/owner/schedules**", async route => {
     const request = route.request();
     const url = new URL(request.url());

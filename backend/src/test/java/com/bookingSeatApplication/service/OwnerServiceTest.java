@@ -71,6 +71,7 @@ class OwnerServiceTest {
         assertEquals(List.of(1),service.trips(one,day).stream().map(Trip::scheduleId).toList());
         var detail=service.detail(one,1);
         assertEquals(1,detail.trip().bookedSeats()); assertEquals(1,detail.trip().confirmedSeats());
+        assertTrue(detail.trip().hasBookingHistory());
         assertEquals(0,new BigDecimal("1000").compareTo(detail.trip().confirmedValue()));
         assertTrue(detail.seats().get(0).getBooked()); assertFalse(detail.seats().get(1).getBooked());
         assertEquals(2,detail.reservations().size());
@@ -92,6 +93,7 @@ class OwnerServiceTest {
         service.createTrip(owner,trip(1,"13:00"));
         int id=db.queryForObject("SELECT MAX(schedule_id) FROM schedules",Integer.class);
         service.updateTrip(owner,id,new NewTrip(1,day,LocalTime.parse("14:30"),new BigDecimal("1350.00")));
+        assertFalse(service.detail(owner,id).trip().hasBookingHistory());
         assertEquals(LocalTime.parse("14:30"),db.queryForObject("SELECT departure_time FROM schedules WHERE schedule_id=?",LocalTime.class,id));
         assertEquals(0,new BigDecimal("1350.00").compareTo(db.queryForObject("SELECT price FROM schedules WHERE schedule_id=?",BigDecimal.class,id)));
         assertThrows(NotFoundException.class,()->service.updateTrip(owner,id,new NewTrip(2,day,LocalTime.NOON,new BigDecimal("1000"))));
