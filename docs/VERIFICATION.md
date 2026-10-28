@@ -50,3 +50,9 @@ See `BUS-OWNERS.md` for owner access, assignment and authentication verification
 ## One-time owner approval edition
 
 Java 25 / Maven 3.10.0 package passes: **29 backend tests**, including **114 HTTP security checks**. Owner applications remain Pending, receive no token or assigned buses, and need an administrator’s identity/ownership verification confirmation and note before approval. Approval persists; revoked tokens lose access on their next request. H2 tests verify approval/audit storage. TypeScript/Vite build and ESLint pass. Browser tests are included but remain unexecuted because of the host socket restriction; live MySQL upgrade/integration still needs local verification.
+
+## Current verified repository state · 28 October 2026
+
+The current repository adds owner schedule create, read, update and delete operations. Backend checks cover ownership, duplicate departure times, booking-history protection and fare/date validation. Frontend checks cover owner schedule editing and deletion. Schedules with any booking history, including cancelled bookings, are locked against edits and deletion.
+
+GitHub Actions run [40674667596](https://github.com/uvinN20/SeatSwift/actions/runs/40674667596) passed the Java 25 backend verification and the frontend lint, build and Playwright browser test jobs. This successful CI run supersedes earlier notes in this file that browser tests could not run in the original host environment. Live MySQL 8 integration and production deployment remain to be verified locally.
