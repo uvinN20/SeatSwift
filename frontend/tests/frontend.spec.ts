@@ -1,6 +1,7 @@
 import {test,expect} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-const trip={scheduleId:1,routeId:1,source:'Colombo',destination:'Kandy',busId:1,travelDate:'2027-01-20',departureTime:'08:00:00',price:1500,totalSeats:12,availableSeats:11};
+const futureDate = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+const trip={scheduleId:1,routeId:1,source:'Colombo',destination:'Kandy',busId:1,travelDate:futureDate,departureTime:'08:00:00',price:1500,totalSeats:12,availableSeats:11};
 test.beforeEach(async({page})=>{
  await page.route('**/seat-booking-application/api/**',route=>{
  const path=new URL(route.request().url()).pathname;
@@ -21,6 +22,13 @@ test('seat selection, keyboard navigation, anonymous auth gate',async({page})=>{
 });
 test('public pages render and reduced motion',async({page})=>{
  await page.emulateMedia({reducedMotion:'reduce'});for(const path of ['/routes','/schedules','/about','/contact','/login','/passengers/register']){await page.goto(path);await expect(page.locator('h1').first()).toBeVisible();}
+});
+test('quick travel date buttons select today, tomorrow, and the day after',async({page})=>{
+ await page.goto('/');const input=page.locator('#s-date');const today=await input.inputValue();
+ const addDays=(iso:string,count:number)=>{const d=new Date(`${iso}T12:00:00Z`);d.setUTCDate(d.getUTCDate()+count);return d.toISOString().slice(0,10);};
+ await page.getByRole('button',{name:'Tomorrow',exact:true}).click();await expect(input).toHaveValue(addDays(today,1));
+ await page.getByRole('button',{name:'Day after tomorrow',exact:true}).click();await expect(input).toHaveValue(addDays(today,2));
+ await page.getByRole('button',{name:'Today',exact:true}).click();await expect(input).toHaveValue(today);
 });
 test('home accessibility audit',async({page})=>{
  await page.goto('/');await expect(page.locator('h1')).toBeVisible();const report=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa']).analyze();expect(report.violations).toEqual([]);

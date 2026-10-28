@@ -1,7 +1,8 @@
 import { test, expect } from "@playwright/test";
 
+const futureDate = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
 const fleet = [{ busId: 1, routeId: 1, source: "Colombo", destination: "Kandy", totalSeats: 40, ownerId: 1, ownerName: "Test Owner" }];
-const trip = { scheduleId: 1, busId: 1, source: "Colombo", destination: "Kandy", travelDate: "2027-01-20", departureTime: "10:00:00", price: 1500, totalSeats: 40, bookedSeats: 9, confirmedSeats: 8, confirmedValue: 12000 };
+const trip = { scheduleId: 1, busId: 1, source: "Colombo", destination: "Kandy", travelDate: futureDate, departureTime: "10:00:00", price: 1500, totalSeats: 40, bookedSeats: 9, confirmedSeats: 8, confirmedValue: 12000 };
 const token = `header.${Buffer.from(JSON.stringify({ sub: "ownerone" })).toString("base64url")}.signature`;
 test.beforeEach(async ({ page }) => {
   await page.route("**/seat-booking-application/api/**", async route => {
@@ -33,12 +34,12 @@ test("shared sign-in opens owner dashboard and seat manifest", async ({ page }) 
   await page.getByRole("button", { name: "Tomorrow", exact: true }).click();
   await expect(page.getByText("Test Passenger", { exact: true })).toHaveCount(0);
   await page.getByRole("button", { name: "Add departure", exact: true }).click();
-  await page.getByLabel("Travel date", { exact: true }).last().fill("2027-01-20");
+  await page.getByLabel("Travel date", { exact: true }).last().fill(futureDate);
   await page.getByLabel("Departure time (Sri Lanka)").fill("15:30");
   await page.getByLabel("Ticket fare (LKR)").fill("1500");
   const request = page.waitForRequest(r => r.url().endsWith("/owner/schedules") && r.method() === "POST");
   await page.getByRole("dialog").getByRole("button", { name: "Add departure", exact: true }).click();
-  expect((await request).postDataJSON()).toEqual({ busId: 1, travelDate: "2027-01-20", departureTime: "15:30:00", price: 1500 });
+  expect((await request).postDataJSON()).toEqual({ busId: 1, travelDate: futureDate, departureTime: "15:30:00", price: 1500 });
 });
 for (const width of [320, 375, 1440]) test(`owner workspace fits ${width}px`, async ({ page }) => {
   await page.setViewportSize({ width, height: 900 });
