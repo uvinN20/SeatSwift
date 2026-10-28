@@ -4,11 +4,12 @@ interface Props {
   children: ReactNode;
   delay?: number;
   className?: string;
+  as?: "div" | "li";
 }
 
 /** Fades/slides content in once when it scrolls into view. Pure CSS transition; disabled by prefers-reduced-motion. */
-const Reveal = ({ children, delay = 0, className = "" }: Props) => {
-  const ref = useRef<HTMLDivElement>(null);
+const Reveal = ({ children, delay = 0, className = "", as = "div" }: Props) => {
+  const ref = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const el = ref.current;
@@ -30,10 +31,11 @@ const Reveal = ({ children, delay = 0, className = "" }: Props) => {
     return () => io.disconnect();
   }, []);
 
+  const Tag = as;
   return (
-    <div ref={ref} className={`reveal ${className}`} style={{ transitionDelay: `${delay}ms` }}>
+    <Tag ref={(element: HTMLDivElement | HTMLLIElement | null) => { ref.current = element; }} className={`reveal ${className}`} style={{ transitionDelay: `${delay}ms` }}>
       {children}
-    </div>
+    </Tag>
   );
 };
 

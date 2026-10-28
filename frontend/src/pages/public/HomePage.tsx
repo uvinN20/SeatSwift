@@ -187,8 +187,8 @@ const HomePage = () => {
               ["Reserve & pay", "Enter passenger details, transfer the fare and upload your slip."],
               ["Get confirmed", "Once your payment is verified, your booking is confirmed."],
             ].map(([t, d], i) => (
-              <Reveal key={t} delay={i * 70}>
-                <li><h3>{t}</h3><p>{d}</p></li>
+              <Reveal as="li" key={t} delay={i * 70}>
+                <h3>{t}</h3><p>{d}</p>
               </Reveal>
             ))}
           </ol>

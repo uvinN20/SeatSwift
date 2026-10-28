@@ -16,7 +16,7 @@ for(const width of [320,375,768,1024,1440,2560]) test(`home fits ${width}px`,asy
 });
 test('seat selection, keyboard navigation, anonymous auth gate',async({page})=>{
  await page.goto('/book/1');const seat=page.getByRole('button',{name:'Seat 1, available',exact:true});await seat.click();await expect(page.getByRole('button',{name:'Seat 1, selected'})).toHaveAttribute('aria-pressed','true');
- await seat.press('ArrowRight');expect(await page.evaluate(()=>document.activeElement?.id)).not.toBe('seat-1');
+ await page.getByRole('button',{name:'Seat 1, selected',exact:true}).press('ArrowRight');expect(await page.evaluate(()=>document.activeElement?.id)).not.toBe('seat-1');
  await expect(page.getByRole('button',{name:'Seat 12, occupied'})).toBeDisabled();
  await page.getByRole('button',{name:/Continue/i}).first().click();await expect(page.getByRole('heading',{name:'Sign in to book your seat'})).toBeVisible();
 });
