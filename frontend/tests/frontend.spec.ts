@@ -31,5 +31,6 @@ test('quick travel date buttons select today, tomorrow, and the day after',async
  await page.getByRole('button',{name:'Today',exact:true}).click();await expect(input).toHaveValue(today);
 });
 test('home accessibility audit',async({page})=>{
- await page.goto('/');await expect(page.locator('h1')).toBeVisible();const report=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa']).analyze();expect(report.violations).toEqual([]);
+ await page.emulateMedia({reducedMotion:'reduce'});await page.goto('/');await expect(page.locator('h1')).toBeVisible();const report=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa']).analyze();expect(report.violations).toEqual([]);
 });
+
