@@ -95,6 +95,19 @@ public class BookingServiceImpl implements BookingService {
     }
 
     @Override
+    @Transactional
+    public void cancelBooking(int bookingId, int passengerId) {
+        Booking booking = bookingDao.findById(bookingId);
+        if (booking == null || booking.getPassengerId() == null || booking.getPassengerId() != passengerId) {
+            throw new com.bookingSeatApplication.exception.NotFoundException("Booking not found");
+        }
+        if (booking.getBookingStatus() == BookingStatus.CANCELLED) return;
+        if (bookingDao.cancelOwnedUpcoming(bookingId, passengerId, bookingWindow.now()) == 0) {
+            throw new ConflictException("This booking can no longer be cancelled. Cancellation closes at departure.");
+        }
+    }
+
+    @Override
     public List<Booking> getAllBookings() {
         return bookingDao.getAllBookings();
     }

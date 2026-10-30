@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 public class BookingWindow {
     private final Clock clock;
     public BookingWindow(Clock clock) { this.clock = clock; }
+    public LocalDateTime now() { return LocalDateTime.now(clock); }
     public LocalDate today() { return LocalDate.now(clock); }
     public LocalDateTime earliestDeparture() { return LocalDateTime.now(clock).plusHours(1); }
     public boolean allows(LocalDate date, LocalTime time) {

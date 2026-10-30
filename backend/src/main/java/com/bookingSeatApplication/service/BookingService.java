@@ -11,6 +11,8 @@ public interface BookingService {
     /** Creates a PENDING_PAYMENT booking owned by the authenticated passenger. Returns the booking reference. */
     String bookSeat(BookingRequestDto request, int passengerId);
 
+    void cancelBooking(int bookingId, int passengerId);
+
     List<Booking> getAllBookings();
 
     List<PassengerBookingDto> getPassengerBookings(int passengerId);

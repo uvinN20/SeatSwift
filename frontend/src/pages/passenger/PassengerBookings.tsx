@@ -7,7 +7,7 @@ import SlipUploadModal from "../../components/payments/SlipUploadModal";
 import SlipViewer from "../../components/payments/SlipViewer";
 import { BookingStatusTag, PaymentStatusTag } from "../../components/payments/StatusTags";
 import EmptyState from "../../components/common/EmptyState";
-import { fetchMySlip, getMyBookings } from "../../services/paymentService";
+import { cancelMyBooking, fetchMySlip, getMyBookings } from "../../services/paymentService";
 import type { PassengerBooking } from "../../types/payment";
 import { errorMessage, formatMoney, formatTime } from "../../utils/format";
 import { formatLongDate, isUpcoming } from "../../utils/dates";
@@ -16,6 +16,10 @@ import { ROUTES } from "../../types/routes";
 type Tab = "upcoming" | "past" | "cancelled";
 
 const PassengerBookings = () => {
+  const [cancelFor, setCancelFor] = useState<PassengerBooking | null>(null);
+  const [cancelling, setCancelling] = useState(false);
+  const [cancelError, setCancelError] = useState<string | null>(null);
+  const [cancelSuccess, setCancelSuccess] = useState(false);
   const [rows, setRows] = useState<PassengerBooking[]>([]);
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState<string | null>(null);
@@ -76,6 +80,22 @@ const PassengerBookings = () => {
     setSlipOpen(false);
   };
 
+  const cancelBooking = async () => {
+    if (!cancelFor || cancelling) return;
+    setCancelling(true);
+    setCancelError(null);
+    try {
+      await cancelMyBooking(cancelFor.bookingId);
+      setCancelFor(null);
+      setCancelSuccess(true);
+      await load();
+    } catch (err) {
+      setCancelError(await errorMessage(err, "Could not cancel this booking"));
+    } finally {
+      setCancelling(false);
+    }
+  };
+
   const list = groups[tab];
 
   return (
@@ -103,6 +123,7 @@ const PassengerBookings = () => {
           style={{ marginBottom: 16 }}
         />
 
+        {cancelSuccess && <Alert type="success" showIcon closable onClose={() => setCancelSuccess(false)} title="Booking cancelled. Your seat has been released." description="If you already paid, contact the administrator about a refund. Refunds are not automatic." style={{ marginBottom: 12 }} />}
         {loadError && <Alert type="error" showIcon title={loadError} action={<Button size="small" onClick={() => { setLoading(true); void load(); }}>Retry</Button>} style={{ marginBottom: 12 }} />}
 
         {loading ? (
@@ -128,7 +149,7 @@ const PassengerBookings = () => {
                   </div>
                 </div>
 
-                <PaymentWidget status={b.paymentStatus} reason={b.rejectionReason}/>
+                {b.bookingStatus !== "CANCELLED" && <PaymentWidget status={b.paymentStatus} reason={b.rejectionReason}/>}
                 <dl className="sb-bcard__facts" style={{ margin: 0 }}>
                   <div><dt>Date</dt><dd>{formatLongDate(b.travelDate)}</dd></div>
                   <div><dt>Departure</dt><dd>{formatTime(b.departureTime)}</dd></div>
@@ -137,19 +158,22 @@ const PassengerBookings = () => {
                   <div><dt>Amount</dt><dd>{formatMoney(b.amount)}</dd></div>
                 </dl>
 
-                {b.paymentStatus === "REJECTED" && b.rejectionReason && (
+                {b.bookingStatus !== "CANCELLED" && b.paymentStatus === "REJECTED" && b.rejectionReason && (
                   <Alert type="warning" showIcon title="Payment slip rejected" description={<Typography.Text>{b.rejectionReason}. Please upload a corrected slip.</Typography.Text>} />
                 )}
                 {b.bookingStatus === "PENDING_PAYMENT" && b.paymentStatus === "NOT_SUBMITTED" && (
                   <Alert type="info" showIcon title="Your seat is held. Upload your payment slip to confirm this booking." />
                 )}
 
-                {(b.canUploadSlip || b.paymentStatus !== "NOT_SUBMITTED") && (
+                {((b.bookingStatus !== "CANCELLED" && b.canUploadSlip) || b.paymentStatus !== "NOT_SUBMITTED" || (b.bookingStatus !== "CANCELLED" && isUpcoming(b.travelDate, b.departureTime))) && (
                   <div className="sb-bcard__actions">
-                    {b.canUploadSlip && (
+                    {b.bookingStatus !== "CANCELLED" && b.canUploadSlip && (
                       <Button type="primary" onClick={() => setUploadFor(b)}>
                         {b.paymentStatus === "REJECTED" ? "Resubmit slip" : "Upload slip"}
                       </Button>
+                    )}
+                    {b.bookingStatus !== "CANCELLED" && isUpcoming(b.travelDate, b.departureTime) && (
+                      <Button danger onClick={() => { setCancelError(null); setCancelFor(b); }}>Cancel booking</Button>
                     )}
                     {b.paymentStatus !== "NOT_SUBMITTED" && <Button onClick={() => void viewSlip(b)}>View slip</Button>}
                   </div>
@@ -160,6 +184,13 @@ const PassengerBookings = () => {
         )}
       </div>
 
+      <Modal open={cancelFor !== null} title="Cancel this booking?" okText="Cancel booking"
+        cancelText="Keep booking" okButtonProps={{ danger: true }} confirmLoading={cancelling}
+        onOk={() => void cancelBooking()} onCancel={() => { if (!cancelling) setCancelFor(null); }} closable={!cancelling} maskClosable={!cancelling}>
+        <p>Cancel booking {cancelFor?.bookingReference}? Your seat will become available to other passengers. This cannot be undone.</p>
+        <p>If you already paid, contact the administrator about a refund. Refunds are not automatic.</p>
+        {cancelError && <Alert type="error" showIcon title={cancelError} />}
+      </Modal>
       <SlipUploadModal
         booking={uploadFor}
         onClose={() => setUploadFor(null)}

@@ -32,6 +32,14 @@ public class PassengerPaymentController {
                 bookingService.getPassengerBookings(me.id())));
     }
 
+    @PostMapping("/bookings/{bookingId}/cancel")
+    public ResponseEntity<ResponseDto> cancelBooking(@PathVariable int bookingId,
+                                                       @AuthenticationPrincipal AuthPrincipal me) {
+        bookingService.cancelBooking(bookingId, me.id());
+        return ResponseEntity.ok(ApiResponses.success(ResponseCodes.SUCCESS,
+                "Booking cancelled. Your seat has been released. Any refund requires administrator review.", null));
+    }
+
     @GetMapping("/bookings/{bookingId}/payment")
     public ResponseEntity<ResponseDto> myPayment(@PathVariable int bookingId,
                                                  @AuthenticationPrincipal AuthPrincipal me) {

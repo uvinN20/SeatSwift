@@ -15,6 +15,8 @@ public interface BookingDao {
 
     int saveBooking(Booking booking);
 
+    int cancelOwnedUpcoming(int bookingId, int passengerId, java.time.LocalDateTime now);
+
     Booking findById(int bookingId);
 
     List<Booking> getAllBookings();

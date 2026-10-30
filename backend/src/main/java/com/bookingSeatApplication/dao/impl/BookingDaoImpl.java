@@ -99,6 +99,17 @@ public class BookingDaoImpl implements BookingDao {
     }
 
     @Override
+    public int cancelOwnedUpcoming(int bookingId, int passengerId, java.time.LocalDateTime now) {
+        // One conditional write protects ownership, departure time and concurrent state changes.
+        // The generated active_seat_id becomes NULL, releasing only this departure's seat.
+        return jdbcTemplate.update("UPDATE bookings SET booking_status='CANCELLED' " +
+                "WHERE booking_id=? AND passenger_id=? AND booking_status IN ('PENDING_PAYMENT','CONFIRMED') " +
+                "AND schedule_id IN (SELECT schedule_id FROM schedules WHERE travel_date > ? " +
+                "OR (travel_date = ? AND departure_time > ?))",
+                bookingId, passengerId, now.toLocalDate(), now.toLocalDate(), now.toLocalTime());
+    }
+
+    @Override
     public Booking findById(int bookingId) {
         List<Booking> rows = jdbcTemplate.query(
                 "SELECT * FROM bookings WHERE booking_id = ?", BOOKING_MAPPER, bookingId);
