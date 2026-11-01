@@ -12,6 +12,11 @@ import type {
 export const getMyBookings = () =>
   api.get<ApiEnvelope<PassengerBooking[]>>("/passenger/bookings");
 
+export const updateMyBooking = (
+  bookingId: number,
+  details: { passengerName: string; phoneNumber: string },
+) => api.put<ApiEnvelope<null>>(`/passenger/bookings/${bookingId}`, details);
+
 export const cancelMyBooking = (bookingId: number) =>
   api.post<ApiEnvelope<null>>(`/passenger/bookings/${bookingId}/cancel`);
 
