@@ -4,7 +4,9 @@ import com.bookingSeatApplication.dao.BookingDao;
 import com.bookingSeatApplication.dao.ScheduleDao;
 import com.bookingSeatApplication.dto.BookingRequestDto;
 import com.bookingSeatApplication.dto.PassengerBookingDto;
+import com.bookingSeatApplication.dto.UpdateBookingContactDto;
 import com.bookingSeatApplication.exception.ConflictException;
+import com.bookingSeatApplication.exception.NotFoundException;
 import com.bookingSeatApplication.model.Booking;
 import com.bookingSeatApplication.model.BookingStatus;
 import com.bookingSeatApplication.model.Schedule;
@@ -99,11 +101,48 @@ public class BookingServiceImpl implements BookingService {
     public void cancelBooking(int bookingId, int passengerId) {
         Booking booking = bookingDao.findById(bookingId);
         if (booking == null || booking.getPassengerId() == null || booking.getPassengerId() != passengerId) {
-            throw new com.bookingSeatApplication.exception.NotFoundException("Booking not found");
+            throw new NotFoundException("Booking not found");
         }
         if (booking.getBookingStatus() == BookingStatus.CANCELLED) return;
         if (bookingDao.cancelOwnedUpcoming(bookingId, passengerId, bookingWindow.now()) == 0) {
             throw new ConflictException("This booking can no longer be cancelled. Cancellation closes at departure.");
+        }
+    }
+
+    @Override
+    @Transactional
+    public void updatePassengerDetails(int bookingId, int passengerId, UpdateBookingContactDto request) {
+        if (request == null) {
+            throw new IllegalArgumentException("Passenger details are required");
+        }
+        if (request.getPassengerName() == null || request.getPassengerName().isBlank()) {
+            throw new IllegalArgumentException("Passenger name is required");
+        }
+        if (request.getPhoneNumber() == null || request.getPhoneNumber().isBlank()) {
+            throw new IllegalArgumentException("Phone number is required");
+        }
+
+        String name = request.getPassengerName().trim();
+        String phone = request.getPhoneNumber().trim();
+        if (name.length() > 150) {
+            throw new IllegalArgumentException("Passenger name must be 150 characters or fewer");
+        }
+        if (phone.length() > 40) {
+            throw new IllegalArgumentException("Phone number must be 40 characters or fewer");
+        }
+
+        Booking booking = bookingDao.findById(bookingId);
+        if (booking == null || booking.getPassengerId() == null || booking.getPassengerId() != passengerId) {
+            throw new NotFoundException("Booking not found");
+        }
+        if (booking.getBookingStatus() == BookingStatus.CANCELLED) {
+            throw new ConflictException("Cancelled bookings cannot be edited");
+        }
+        if (name.equals(booking.getPassengerName()) && phone.equals(booking.getPhoneNumber())) {
+            return;
+        }
+        if (bookingDao.updateOwnedUpcomingDetails(bookingId, passengerId, name, phone, bookingWindow.now()) == 0) {
+            throw new ConflictException("Passenger details can only be edited before departure");
         }
     }
 
