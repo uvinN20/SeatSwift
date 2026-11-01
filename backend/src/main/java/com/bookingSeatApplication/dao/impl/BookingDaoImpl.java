@@ -110,6 +110,18 @@ public class BookingDaoImpl implements BookingDao {
     }
 
     @Override
+    public int updateOwnedUpcomingDetails(int bookingId, int passengerId, String passengerName, String phoneNumber,
+                                         java.time.LocalDateTime now) {
+        // Keep the ownership, status and departure checks in the write itself to avoid race conditions.
+        return jdbcTemplate.update("UPDATE bookings SET passenger_name=?, phone_number=? " +
+                        "WHERE booking_id=? AND passenger_id=? AND booking_status IN ('PENDING_PAYMENT','CONFIRMED') " +
+                        "AND schedule_id IN (SELECT schedule_id FROM schedules WHERE travel_date > ? " +
+                        "OR (travel_date = ? AND departure_time > ?))",
+                passengerName, phoneNumber, bookingId, passengerId,
+                now.toLocalDate(), now.toLocalDate(), now.toLocalTime());
+    }
+
+    @Override
     public Booking findById(int bookingId) {
         List<Booking> rows = jdbcTemplate.query(
                 "SELECT * FROM bookings WHERE booking_id = ?", BOOKING_MAPPER, bookingId);
@@ -128,7 +140,8 @@ public class BookingDaoImpl implements BookingDao {
 
     private static final String PASSENGER_BOOKINGS =
             "SELECT b.booking_id, b.booking_reference, b.booking_status, b.amount, " +
-            "s.schedule_id, s.bus_id, r.source, r.destination, s.travel_date, s.departure_time, st.seat_number, " +
+            "b.passenger_name, b.phone_number, s.schedule_id, s.bus_id, r.source, r.destination, " +
+            "s.travel_date, s.departure_time, st.seat_number, " +
             "p.payment_status, p.payment_reference, p.uploaded_at, p.rejection_reason " +
             "FROM bookings b " +
             "JOIN schedules s ON s.schedule_id = b.schedule_id " +
@@ -147,6 +160,8 @@ public class BookingDaoImpl implements BookingDao {
             dto.setBookingReference(rs.getString("booking_reference"));
             dto.setBookingStatus(rs.getString("booking_status"));
             dto.setAmount(rs.getBigDecimal("amount"));
+            dto.setPassengerName(rs.getString("passenger_name"));
+            dto.setPhoneNumber(rs.getString("phone_number"));
             dto.setScheduleId(rs.getInt("schedule_id"));
             dto.setBusId(rs.getInt("bus_id"));
             dto.setRouteSource(rs.getString("source"));
