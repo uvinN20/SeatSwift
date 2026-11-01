@@ -1,6 +1,7 @@
 package com.bookingSeatApplication.controller;
 
 import com.bookingSeatApplication.dto.ResponseDto;
+import com.bookingSeatApplication.dto.UpdateBookingContactDto;
 import com.bookingSeatApplication.service.BookingService;
 import com.bookingSeatApplication.service.PaymentService;
 import com.bookingSeatApplication.util.ApiResponses;
@@ -30,6 +31,15 @@ public class PassengerPaymentController {
     public ResponseEntity<ResponseDto> myBookings(@AuthenticationPrincipal AuthPrincipal me) {
         return ResponseEntity.ok(ApiResponses.success(ResponseCodes.SUCCESS, "Bookings fetched successfully",
                 bookingService.getPassengerBookings(me.id())));
+    }
+
+    @PutMapping("/bookings/{bookingId}")
+    public ResponseEntity<ResponseDto> updateBookingDetails(@PathVariable int bookingId,
+                                                             @RequestBody UpdateBookingContactDto request,
+                                                             @AuthenticationPrincipal AuthPrincipal me) {
+        bookingService.updatePassengerDetails(bookingId, me.id(), request);
+        return ResponseEntity.ok(ApiResponses.success(ResponseCodes.SUCCESS,
+                "Passenger details updated successfully", null));
     }
 
     @PostMapping("/bookings/{bookingId}/cancel")
