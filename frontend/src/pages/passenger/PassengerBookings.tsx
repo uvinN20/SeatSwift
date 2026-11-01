@@ -1,13 +1,13 @@
 import NextTrip from "../../components/ui/NextTrip";
 import PaymentWidget from "../../components/ui/PaymentWidget";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { Alert, Button, Modal, Segmented, Skeleton, Typography } from "antd";
+import { Alert, Button, Input, Modal, Segmented, Skeleton, Typography } from "antd";
 import { Link } from "react-router-dom";
 import SlipUploadModal from "../../components/payments/SlipUploadModal";
 import SlipViewer from "../../components/payments/SlipViewer";
 import { BookingStatusTag, PaymentStatusTag } from "../../components/payments/StatusTags";
 import EmptyState from "../../components/common/EmptyState";
-import { cancelMyBooking, fetchMySlip, getMyBookings } from "../../services/paymentService";
+import { cancelMyBooking, fetchMySlip, getMyBookings, updateMyBooking } from "../../services/paymentService";
 import type { PassengerBooking } from "../../types/payment";
 import { errorMessage, formatMoney, formatTime } from "../../utils/format";
 import { formatLongDate, isUpcoming } from "../../utils/dates";
@@ -20,6 +20,12 @@ const PassengerBookings = () => {
   const [cancelling, setCancelling] = useState(false);
   const [cancelError, setCancelError] = useState<string | null>(null);
   const [cancelSuccess, setCancelSuccess] = useState(false);
+  const [editFor, setEditFor] = useState<PassengerBooking | null>(null);
+  const [editName, setEditName] = useState("");
+  const [editPhone, setEditPhone] = useState("");
+  const [editing, setEditing] = useState(false);
+  const [editError, setEditError] = useState<string | null>(null);
+  const [editSuccess, setEditSuccess] = useState(false);
   const [rows, setRows] = useState<PassengerBooking[]>([]);
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState<string | null>(null);
@@ -80,6 +86,35 @@ const PassengerBookings = () => {
     setSlipOpen(false);
   };
 
+  const openEdit = (booking: PassengerBooking) => {
+    setEditFor(booking);
+    setEditName(booking.passengerName);
+    setEditPhone(booking.phoneNumber);
+    setEditError(null);
+  };
+
+  const savePassengerDetails = async () => {
+    if (!editFor || editing) return;
+    const passengerName = editName.trim();
+    const phoneNumber = editPhone.trim();
+    if (!passengerName || !phoneNumber) {
+      setEditError("Enter the passenger name and phone number.");
+      return;
+    }
+    setEditing(true);
+    setEditError(null);
+    try {
+      await updateMyBooking(editFor.bookingId, { passengerName, phoneNumber });
+      setEditFor(null);
+      setEditSuccess(true);
+      await load();
+    } catch (err) {
+      setEditError(await errorMessage(err, "Could not update this booking"));
+    } finally {
+      setEditing(false);
+    }
+  };
+
   const cancelBooking = async () => {
     if (!cancelFor || cancelling) return;
     setCancelling(true);
@@ -123,6 +158,7 @@ const PassengerBookings = () => {
           style={{ marginBottom: 16 }}
         />
 
+        {editSuccess && <Alert type="success" showIcon closable onClose={() => setEditSuccess(false)} title="Passenger details updated." style={{ marginBottom: 12 }} />}
         {cancelSuccess && <Alert type="success" showIcon closable onClose={() => setCancelSuccess(false)} title="Booking cancelled. Your seat has been released." description="If you already paid, contact the administrator about a refund. Refunds are not automatic." style={{ marginBottom: 12 }} />}
         {loadError && <Alert type="error" showIcon title={loadError} action={<Button size="small" onClick={() => { setLoading(true); void load(); }}>Retry</Button>} style={{ marginBottom: 12 }} />}
 
@@ -155,6 +191,8 @@ const PassengerBookings = () => {
                   <div><dt>Departure</dt><dd>{formatTime(b.departureTime)}</dd></div>
                   <div><dt>Seat</dt><dd>{b.seatNumber}</dd></div>
                   <div><dt>Bus</dt><dd>#{b.busId}</dd></div>
+                  <div><dt>Passenger</dt><dd>{b.passengerName}</dd></div>
+                  <div><dt>Phone</dt><dd>{b.phoneNumber}</dd></div>
                   <div><dt>Amount</dt><dd>{formatMoney(b.amount)}</dd></div>
                 </dl>
 
@@ -173,7 +211,10 @@ const PassengerBookings = () => {
                       </Button>
                     )}
                     {b.bookingStatus !== "CANCELLED" && isUpcoming(b.travelDate, b.departureTime) && (
-                      <Button danger onClick={() => { setCancelError(null); setCancelFor(b); }}>Cancel booking</Button>
+                      <>
+                        <Button onClick={() => openEdit(b)}>Edit details</Button>
+                        <Button danger onClick={() => { setCancelError(null); setCancelFor(b); }}>Cancel booking</Button>
+                      </>
                     )}
                     {b.paymentStatus !== "NOT_SUBMITTED" && <Button onClick={() => void viewSlip(b)}>View slip</Button>}
                   </div>
@@ -183,6 +224,25 @@ const PassengerBookings = () => {
           </div>
         )}
       </div>
+
+      <Modal open={editFor !== null} title="Edit passenger details" okText="Save details"
+        cancelText="Keep current details" confirmLoading={editing}
+        okButtonProps={{ disabled: !editName.trim() || !editPhone.trim() }}
+        onOk={() => void savePassengerDetails()} onCancel={() => { if (!editing) setEditFor(null); }}
+        closable={!editing} maskClosable={!editing}>
+        <p>Update the passenger name or contact phone before departure. The route, date, seat and fare stay unchanged.</p>
+        <label style={{ display: "block", marginBottom: 12 }}>
+          Passenger name
+          <Input value={editName} maxLength={150} autoComplete="name"
+            onChange={(event) => setEditName(event.target.value)} />
+        </label>
+        <label style={{ display: "block", marginBottom: 12 }}>
+          Phone number
+          <Input value={editPhone} maxLength={40} autoComplete="tel"
+            onChange={(event) => setEditPhone(event.target.value)} />
+        </label>
+        {editError && <Alert type="error" showIcon title={editError} />}
+      </Modal>
 
       <Modal open={cancelFor !== null} title="Cancel this booking?" okText="Cancel booking"
         cancelText="Keep booking" okButtonProps={{ danger: true }} confirmLoading={cancelling}

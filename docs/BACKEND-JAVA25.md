@@ -6,6 +6,7 @@ The backend targets Java 25 and keeps the Spring Boot 4.0.2 frontend API contrac
 - Shared injectable Clock in Asia/Colombo and BookingWindow for a one-hour booking cutoff, inclusive at exactly one hour.
 - Schedule search and public schedule lists exclude trips before the cutoff. Direct booking POST enforces it again. Admin-created schedules must also satisfy it at creation time.
 - `GET /api/admin/schedules` returns full history, protected by the ADMIN role. Updated admin UI uses it. Other existing endpoints and response envelopes remain compatible.
+- Passenger booking contact correction: `PUT /api/passenger/bookings/{bookingId}` lets a passenger update the passenger name and phone on their own non-cancelled booking before departure. Route, date, seat, fare, and payment evidence remain unchanged. The authenticated passenger ID and a conditional database update enforce ownership and timing.
 - `db/INSTALL_OR_UPGRADE.sql` installs the current schema and upgrades the known base/payment schema without blindly re-adding existing columns. Existing duplicate active seats cause an explicit constraint failure rather than data deletion.
 - Dev-only DemoDataInitializer creates routes, eight bus slots per route, 40 seats per bus, a rolling 14-day timetable and 8–10 different confirmed demo passengers per trip. Reused bus slots are separate buses per route/time, not new buses every day.
 - Seeder writes share a transaction and locked metadata row. Completed demo schedules are not re-filled on restart, so cancellations and real bookings are preserved. Initial admin password change is version-marked and not repeated.
@@ -22,6 +23,7 @@ Verified on 21 October 2026:
 - Cutoff tests cover 08:00 → 09:00 inclusive, one second inside the cutoff, date rollover, tomorrow and Colombo/UTC date differences.
 - Frontend TypeScript/Vite build and ESLint pass. Existing Vite large-chunk warning remains.
 - **MySQL 8 installation/DDL and live MySQL operation were not run here.** The MySQL installation script targets the known project schema. H2 compatibility-mode tests do not establish MySQL-specific DDL compatibility. Browser visual QA was not run for the date controls.
+- Booking contact-update tests were added for passenger ownership, validation, departure cutoff and preservation of trip/seat details. Check this branch's CI run for their result before merging.
 
 The initializer runs on your computer when you start the backend after database setup. This download does not directly modify your local MySQL server.
 

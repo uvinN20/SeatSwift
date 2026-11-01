@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
-/** One row of the passenger's booking + payment history. paymentStatus is NOT_SUBMITTED when no slip exists yet. */
+/** One row of the passenger's booking + payment history. paymentStatus is NOT_SUBMITTED when no slip exists. */
 @Data
 public class PassengerBookingDto {
 
@@ -15,6 +15,8 @@ public class PassengerBookingDto {
     private String bookingReference;
     private String bookingStatus;
     private BigDecimal amount;
+    private String passengerName;
+    private String phoneNumber;
 
     private int scheduleId;
     private int busId;

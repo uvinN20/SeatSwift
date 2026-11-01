@@ -1,5 +1,6 @@
 package com.bookingSeatApplication.service;
 import com.bookingSeatApplication.dao.impl.BookingDaoImpl;
+import com.bookingSeatApplication.dto.UpdateBookingContactDto;
 import com.bookingSeatApplication.exception.*;
 import com.bookingSeatApplication.model.*;
 import com.bookingSeatApplication.service.impl.BookingServiceImpl;
@@ -28,6 +29,12 @@ class BookingCancellationTest {
     void setTime(String instant) {
         ReflectionTestUtils.setField(service,"bookingWindow",new BookingWindow(Clock.fixed(Instant.parse(instant),ZoneId.of("Asia/Colombo"))));
     }
+    UpdateBookingContactDto contact(String name, String phone) {
+        var request=new UpdateBookingContactDto();
+        request.setPassengerName(name);
+        request.setPhoneNumber(phone);
+        return request;
+    }
     @Test void releasesSeatPreservesHistoryAndAllowsRebooking() {
         service.cancelBooking(1,7);service.cancelBooking(1,7);
         assertEquals(BookingStatus.CANCELLED,dao.findById(1).getBookingStatus());
@@ -51,5 +58,29 @@ class BookingCancellationTest {
         setTime("2026-10-30T05:30:00Z");
         assertThrows(ConflictException.class,()->service.cancelBooking(1,7));
         assertTrue(dao.isSeatAlreadyBooked(1,1));
+    }
+    @Test void passengerCanUpdateOwnContactBeforeDepartureWithoutChangingTrip() {
+        service.updatePassengerDetails(1,7,contact("Kasun Perera","0771234567"));
+        Booking updated=dao.findById(1);
+        assertEquals("Kasun Perera",updated.getPassengerName());
+        assertEquals("0771234567",updated.getPhoneNumber());
+        assertEquals(1,updated.getScheduleId());
+        assertEquals(1,updated.getSeatId());
+        assertEquals(BookingStatus.PENDING_PAYMENT,updated.getBookingStatus());
+    }
+    @Test void contactUpdateRejectsAnotherPassengerAndCancelledOrDepartedBookings() {
+        assertThrows(NotFoundException.class,()->service.updatePassengerDetails(1,8,contact("Other","0770000000")));
+        service.cancelBooking(1,7);
+        assertThrows(ConflictException.class,()->service.updatePassengerDetails(1,7,contact("Kasun","0771234567")));
+
+        db.update("UPDATE bookings SET booking_status='PENDING_PAYMENT' WHERE booking_id=1");
+        setTime("2026-10-30T04:30:00Z");
+        assertThrows(ConflictException.class,()->service.updatePassengerDetails(1,7,contact("Kasun","0771234567")));
+    }
+    @Test void contactUpdateValidatesRequiredFieldsAndLengths() {
+        assertThrows(IllegalArgumentException.class,()->service.updatePassengerDetails(1,7,contact(" ","0771234567")));
+        assertThrows(IllegalArgumentException.class,()->service.updatePassengerDetails(1,7,contact("Passenger"," ")));
+        assertThrows(IllegalArgumentException.class,()->service.updatePassengerDetails(1,7,contact("x".repeat(151),"0771234567")));
+        assertThrows(IllegalArgumentException.class,()->service.updatePassengerDetails(1,7,contact("Passenger","1".repeat(41))));
     }
 }
