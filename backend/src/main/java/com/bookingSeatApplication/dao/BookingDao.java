@@ -17,6 +17,10 @@ public interface BookingDao {
 
     int cancelOwnedUpcoming(int bookingId, int passengerId, java.time.LocalDateTime now);
 
+    /** Updates contact fields only for the owner of a live booking before departure. */
+    int updateOwnedUpcomingDetails(int bookingId, int passengerId, String passengerName, String phoneNumber,
+                                   java.time.LocalDateTime now);
+
     Booking findById(int bookingId);
 
     List<Booking> getAllBookings();
