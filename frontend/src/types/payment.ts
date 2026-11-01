@@ -25,6 +25,8 @@ export interface PassengerBooking {
   bookingReference: string;
   bookingStatus: BookingStatus;
   amount: number;
+  passengerName: string;
+  phoneNumber: string;
   scheduleId: number;
   busId: number;
   routeSource: string;
